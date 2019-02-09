@@ -25,10 +25,10 @@ def main(): #creates a command line interface to connect with a given server and
                 if len(function) == 3: # if the right number of parameters
                     response = os.system("ping -c 1 " + function[1]) #ping the server to see if it's on the network
                     if response == 0: #if ping successful
-                        # ftp.connect(function[1],function[2])
-                        # ftp.login()
-                        # ftp.cwd('~/Documents') #replace with your directory
-                        # ftp.retrlines('LIST')
+                        ftp.connect(function[1],int(function[2]))
+                        ftp.login()
+                        ftp.cwd('/Documents') #replace with your directory
+                        ftp.retrlines('LIST')
                         connect = True
                         print("connected to " + function[1])
                     else:
