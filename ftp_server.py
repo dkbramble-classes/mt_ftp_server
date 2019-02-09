@@ -8,6 +8,7 @@ authorizer.add_anonymous("/Users/lbassett", perm="elradfmw")
 
 handler = FTPHandler
 handler.authorizer = authorizer
+handler.banner = "You have connected sucessfully!"
 
-server = FTPServer(("127.0.0.1", 1026), handler)
+server = FTPServer(("", 1026), handler)
 server.serve_forever()
