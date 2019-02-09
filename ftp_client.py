@@ -14,8 +14,8 @@ connect = False
 ftp = FTP('')
 while quit == False:
     command = input("Enter a command: ") #ask for input
-    # os.system('cls' if os.name == 'nt' else 'clear')
-    function = command.split() #splice the input into a list delimited by spaces
+    os.system('cls' if os.name == 'nt' else 'clear')
+    function = command.split(" ", 3) #splice the input into a list delimited by spaces
     if connect == False:
         if function[0].upper() == "CONNECT":
             if len(function) == 3: # if the right number of parameters
