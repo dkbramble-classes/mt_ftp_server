@@ -10,5 +10,5 @@ handler = FTPHandler
 handler.authorizer = authorizer
 handler.banner = "You have connected sucessfully!"
 
-server = FTPServer(("", 1026), handler)
+server = FTPServer(("35.40.65.30", 1026), handler)
 server.serve_forever()

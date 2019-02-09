@@ -14,17 +14,17 @@ connect = False
 ftp = FTP('')
 while quit == False:
     command = input("Enter a command: ") #ask for input
-    os.system('cls' if os.name == 'nt' else 'clear')
-    function = command.split(' ', 3) #splice the input into a list delimited by spaces
+    # os.system('cls' if os.name == 'nt' else 'clear')
+    function = command.split() #splice the input into a list delimited by spaces
     if connect == False:
         if function[0].upper() == "CONNECT":
             if len(function) == 3: # if the right number of parameters
                 response = os.system("ping -c 1 " + function[1]) #ping the server to see if it's on the network
                 if response == 0: #if ping successful
-                    # ftp.connect(function[1],function[2])
-                    # ftp.login()
-                    # ftp.cwd('~/Documents') #replace with your directory
-                    # ftp.retrlines('LIST')
+                    ftp.connect(function[1],int(function[2]))
+                    ftp.login()
+                    ftp.cwd('/Documents') #replace with your directory
+                    ftp.retrlines('LIST')
                     connect = True
                     print("connected to " + function[1])
                 else:
