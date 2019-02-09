@@ -12,6 +12,7 @@ def usage_error(cmd): #error message that prints out the usage of the client
     if cmd != '':
         print("improper usage of '" + cmd + "\'")
     print("Commands: \n\t CONNECT <server name/IP address> <server port> \n\t LIST \n\t RETRIEVE <filename> \n\t STORE <filename> \n\t QUIT")
+
 def main(): #creates a command line interface to connect with a given server and issue it commands
     quit = False
     connect = False
