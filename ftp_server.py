@@ -1,6 +1,6 @@
 from pyftpdlib.authorizers import DummyAuthorizer
 from pyftpdlib.handlers import FTPHandler
-from pyftpdlib.servers import FTPServer
+from pyftpdlib.servers import ThreadedFTPServer
 
 authorizer = DummyAuthorizer()
 authorizer.add_user("user", "12345", "/Users/lbassett", perm="elradfmw")
@@ -12,6 +12,6 @@ handler.banner = "You have connected sucessfully!"
 
 IP = input("Please Enter the IP address you want as server: ")
 print(IP)
-server = FTPServer((IP, 1026), handler) #Make IP the IP of the host machine
+server = ThreadedFTPServer((IP, 1026), handler) #Make IP the IP of the host machine
 
 server.serve_forever()
