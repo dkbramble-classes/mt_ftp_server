@@ -10,5 +10,8 @@ handler = FTPHandler
 handler.authorizer = authorizer
 handler.banner = "You have connected sucessfully!"
 
-server = FTPServer(("35.40.65.30", 1026), handler) #Make IP the IP of the host machine
+IP = input("Please Enter the IP address you want as server: ")
+print(IP)
+server = FTPServer((IP, 1026), handler) #Make IP the IP of the host machine
+
 server.serve_forever()
