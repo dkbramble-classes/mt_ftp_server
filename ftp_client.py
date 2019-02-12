@@ -8,15 +8,37 @@ import os
 import socket
 from ftplib import FTP
 
+ftp = FTP('')
+
 def usage_error(cmd): #error message that prints out the usage of the client
     if cmd != '':
         print("improper usage of '" + cmd + "\'")
     print("Commands: \n\t CONNECT <server name/IP address> <server port> \n\t LIST \n\t RETRIEVE <filename> \n\t STORE <filename> \n\t QUIT")
 
+def Connect():
+    ftp.connect(function[1],function[2])
+    ftp.login()
+    ftp.cwd('.') #replace with your directory
+
+
+def LIST():
+    #retrieves a list of files from the directory: ~/Documents
+    ftp.retrlines('LIST')
+
+def STORE(file):
+    ftp.storbinary('STOR '+ file, open(file, 'rb'))
+    print("Sucessfully stored " + file)
+
+def RETRIEVE(file_dl):
+
+    localfile = open(file_dl, 'wb')
+    ftp.retrbinary('RETR ' + file_dl, localfile.write, 1024)
+
+    localfile.close()
+       
 def main(): #creates a command line interface to connect with a given server and issue it commands
     quit = False
     connect = False
-    ftp = FTP('')
     while quit == False:
         command = input("Enter a command: ") #ask for input
         os.system('cls' if os.name == 'nt' else 'clear')#clears terminal output
@@ -44,23 +66,16 @@ def main(): #creates a command line interface to connect with a given server and
         else:
             if function[0].upper() == "RETRIEVE":
                 if len(function) == 2:
-                    if function[1] in ftp.nlst():
-                        print("Storing " + function[1])
-                        localfile = open(function[1], 'wb')
-                        ftp.retrbinary('RETR ' + function[1], localfile.write, 1024)
-                        localfile.close()
-                    print(function[1])
+                    RETRIEVE(function[1])
                 else:
                     usage_error(function[0])
             elif function[0].upper() == "STORE":
                 if len(function) == 2:
-                    ftp.storbinary('STOR '+function[1], open(function[1], 'rb'))
-                    print("Sucessfully stored " + function[1])
+                    STORE(function[1])
                 else:
                     usage_error(function[0])
             elif function[0].upper() == "LIST":
-                print("listing current files for directory " + ftp.pwd())
-                ftp.retrlines('LIST')
+                LIST()
             elif function[0].upper() == "QUIT":
                 ftp.close()
                 quit = True
