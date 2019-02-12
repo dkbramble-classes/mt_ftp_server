@@ -28,7 +28,7 @@ def main(): #creates a command line interface to connect with a given server and
                     if response == 0: #if ping successful
                         ftp.connect(function[1],int(function[2]))
                         ftp.login()
-                        ftp.cwd('/Documents') #replace with your directory
+                        ftp.cwd('.') #replace with your directory
                         ftp.retrlines('LIST')
                         connect = True
                         print("connected to " + function[1])
@@ -44,16 +44,23 @@ def main(): #creates a command line interface to connect with a given server and
         else:
             if function[0].upper() == "RETRIEVE":
                 if len(function) == 2:
+                    if function[1] in ftp.nlst():
+                        print("Storing " + function[1])
+                        localfile = open(function[1], 'wb')
+                        ftp.retrbinary('RETR ' + function[1], localfile.write, 1024)
+                        localfile.close()
                     print(function[1])
                 else:
                     usage_error(function[0])
             elif function[0].upper() == "STORE":
                 if len(function) == 2:
-                    print(function[1])
+                    ftp.storbinary('STOR '+function[1], open(function[1], 'rb'))
+                    print("Sucessfully stored " + function[1])
                 else:
                     usage_error(function[0])
             elif function[0].upper() == "LIST":
-                print("list")
+                print("listing current files for directory " + ftp.pwd())
+                ftp.retrlines('LIST')
             elif function[0].upper() == "QUIT":
                 ftp.close()
                 quit = True
