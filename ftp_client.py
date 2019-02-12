@@ -30,11 +30,14 @@ def STORE(file):
     print("Sucessfully stored " + file)
 
 def RETRIEVE(file_dl):
+    if file_dl in ftp.nlst():
+        print("Retrieving file")
+        localfile = open(file_dl, 'wb')
+        ftp.retrbinary('RETR ' + file_dl, localfile.write, 1024)
 
-    localfile = open(file_dl, 'wb')
-    ftp.retrbinary('RETR ' + file_dl, localfile.write, 1024)
-
-    localfile.close()
+        localfile.close()
+    else:
+        print("File wasn't found")
        
 def main(): #creates a command line interface to connect with a given server and issue it commands
     quit = False
