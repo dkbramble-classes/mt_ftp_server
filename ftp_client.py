@@ -25,6 +25,10 @@ def LIST():
     #retrieves a list of files from the directory: ~/Documents
     ftp.retrlines('LIST')
 
+def STORE(file):
+    ftp.storbinary('STOR '+ file, open(file, 'rb'))
+    print("Sucessfully stored " + file)
+
 def RETRIEVE(file_dl):
 
     localfile = open(file_dl, 'wb')
@@ -67,7 +71,7 @@ def main(): #creates a command line interface to connect with a given server and
                     usage_error(function[0])
             elif function[0].upper() == "STORE":
                 if len(function) == 2:
-                    print(function[1])
+                    STORE(function[1])
                 else:
                     usage_error(function[0])
             elif function[0].upper() == "LIST":
