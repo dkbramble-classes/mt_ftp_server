@@ -28,7 +28,7 @@ def main(): #creates a command line interface to connect with a given server and
                     if response == 0: #if ping successful
                         ftp.connect(function[1],int(function[2]))
                         ftp.login()
-                        ftp.cwd('/Documents') #replace with your directory
+                        ftp.cwd('.') #replace with your directory
                         ftp.retrlines('LIST')
                         connect = True
                         print("connected to " + function[1])

@@ -3,7 +3,6 @@ from pyftpdlib.handlers import FTPHandler
 from pyftpdlib.servers import ThreadedFTPServer
 
 authorizer = DummyAuthorizer()
-authorizer.add_user("user", "12345", "/Users/lbassett", perm="elradfmw")
 authorizer.add_anonymous(".", perm="elradfmw") #Make direcory the home direcory of the host machine (which can be navigated by ftp.cwd)
 
 handler = FTPHandler
