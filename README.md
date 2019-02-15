@@ -1,6 +1,6 @@
 CIS 457 Project 1: Multi-Threading FTP Server
 
-These programs are a multi-threaded FTP client/server designed for Linux and Mac OS using pyftpdlib and python 3.7. Pyftpdlib is not needed to run the program, as the module is bundled together into an executable via pyinstaller. Python 3 is required however. If you do not have it, you can download it at https://www.python.org/downloads/.
+These programs are multi-threaded FTP client/server programs designed for Linux and Mac OS using pyftpdlib and python 3.7. Pyftpdlib is not needed to run the program, as the module is bundled together into an executable via pyinstaller. Python 3 is required however. If you do not have it, you can download it at https://www.python.org/downloads/.
 
 The server program binds to a port and listens for requests from a client. After a client connects to the server, the server waits for commands. When the client sends a terminate message (quit), the server terminates the connection and waits for the next connection.
 
