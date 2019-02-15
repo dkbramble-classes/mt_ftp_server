@@ -1,22 +1,22 @@
 CIS 457 Project 1: Multi-Threading FTP Server
 
-These programs are a multi-threaded FTP client/server designed for Linux and Mac OS using pyftpdlib and python 3.7. Pyftpdlib is not needed to run the program, as the module is bundled together into an executable via pyinstaller.
+These programs are a multi-threaded FTP client/server designed for Linux and Mac OS using pyftpdlib and python 3.7. Pyftpdlib is not needed to run the program, as the module is bundled together into an executable via pyinstaller. Python 3 is required however. If you do not have it, you can download it at https://www.python.org/downloads/.
 
 The server program binds to a port and listens for requests from a client. After a client connects to the server, the server waits for commands. When the client sends a terminate message (quit), the server terminates the connection and waits for the next connection.
 
 How to Run:
 
-This program requires that you first start the server ("ftp_server"), then start the client ("ftp_client"). Download all the files from this Github to ensure you have all of the necessary dependencies.
+This program requires that you first start the server ("ftp_server"), then start the client ("ftp_client.py"). Download all the files from this Github to ensure you have all of the necessary dependencies.
 
 Server:
 
-To start, run the executable mt_ftp_server/dist/ftp_server by double clicking on the file. This will open a window in the terminal prompting to enter the ip/hostname of your computer in order to host the server. Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the directory in which the program was executed. 
+To start, run the executable mt_ftp_server/dist/ftp_server by double clicking on the file. This will open a window in the terminal prompting to enter the ip/hostname of your computer in order to host the server. Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the directory is the User's home directory. 
   
 Client:
 
-To start, run the executable mt_ftp_server/dist/ftp_client by double clicking on the file. This will open a window in terminal and will ask for a command. By default, the clients's directory is the directory in which the program was executed. The usage for the client is as follows:
+To start, open another window in Terminal and run the command "python3 (or python if python 3 is natively installed) path/to/repository/mt_ftp_server/ftp_client.py". By default, the clients's directory is the directory in which the program was executed (in this case the downloaded repository). The usage for the client is as follows:
 
-1.	CONNECT <server name/IP address> <server port>: This command allows a client to connect to a server. The arguments are the IP address of the server and the port number on which the server is listening for connections. For you, this will be the ip/hostname inputted on the server and the port number 1026, which is the port number set on the server. This command must be done before any other commands can be made.
+1.	CONNECT <server name/IP address> <server port>: This command allows a client to connect to a server. The arguments are the IP address of the server and the port number on which the server is listening for connections. For you, this will be the ip/hostname inputted on the server and the port number 1026, which is the port number set on the server. This command must be made before any other commands can be made.
 
 2.	LIST: When this command is sent to the server, the server returns a list of the files in the current directory on which it is executing. The client will get the list and display it on the screen.
 
