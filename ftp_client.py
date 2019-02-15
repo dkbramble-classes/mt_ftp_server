@@ -26,8 +26,11 @@ def LIST():
     ftp.retrlines('LIST')
 
 def STORE(file):
-    ftp.storbinary('STOR '+ file, open(file, 'rb'))
-    print("Sucessfully stored " + file)
+    if os.path.isfile(file):
+        ftp.storbinary('STOR '+ file, open(file, 'rb'))
+        print("Sucessfully stored " + file)
+    else:
+        print("File does not exist")
 
 def RETRIEVE(file_dl):
     if file_dl in ftp.nlst():
