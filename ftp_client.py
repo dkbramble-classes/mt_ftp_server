@@ -42,7 +42,7 @@ def RETRIEVE(file_dl):
         ftp.retrbinary('RETR ' + file_dl, localfile.write, 1024)
 
         localfile.close()
-        print("Retrieved file " + )
+        print("Retrieved file " + file_dl)
     else:
         print("File wasn't found")
        
