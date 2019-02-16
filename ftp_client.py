@@ -34,11 +34,15 @@ def STORE(file):
 
 def RETRIEVE(file_dl):
     if file_dl in ftp.nlst():
-        print("Retrieving file")
+        for name, types in ftp.mlsd("",["type"]):
+            if file_dl == name and types["type"] == 'dir':
+                print("File is directory, cannot retrieve")
+                return
         localfile = open(file_dl, 'wb')
         ftp.retrbinary('RETR ' + file_dl, localfile.write, 1024)
 
         localfile.close()
+        print("Retrieved file " + )
     else:
         print("File wasn't found")
        
