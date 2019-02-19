@@ -14,7 +14,7 @@ This program requires that you first start the server ("ftp_server") before the 
 
 To start the server, run the executable mt_ftp_server/dist/ftp_server by double clicking on the file. This will open a window in the terminal prompting to enter the ip/hostname of your computer in order to host the server. Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the user's home directory. 
 
-#### Linux/Windows:
+#### Linux:
 
 If you would like to run the server on Linux or Windows, the module pyftpdlib must be installed. This can be installed easily via the Terminal/PowerShell command 'pip install pyftpdlib' (or pip3 if your system's default python version is Python 2). This guide can assist with installing pip if you do not already have it: https://www.makeuseof.com/tag/install-pip-for-python/. When pyftpdlib has been installed, you can run 'ftp_server.py' via the command 'python pathtofile/mtp_ftp_server/ftp_server.py'(or python3 if your system's default python version is Python 2).  Once the server has been started, it will wait and listen for any requests by clients. The server's directory is the directory where this file was executed. 
   
