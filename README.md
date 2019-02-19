@@ -1,18 +1,24 @@
-CIS 457 Project 1: Multi-Threading FTP Server
+#CIS 457 Project 1: Multi-Threading FTP Server
 
-These programs are multi-threaded FTP client/server programs designed for Linux and Mac OS using pyftpdlib and python 3.7. Pyftpdlib is not needed to run the program, as the module is bundled together into an executable via pyinstaller. Python 3 is required however. If you do not have it, you can download it at https://www.python.org/downloads/.
+These programs are multi-threaded FTP client/server programs primarily designed for Mac OS using pyftpdlib and python 3.7. Pyftpdlib is not needed to run the program if it is run on Mac OS, as the module is bundled together into an executable via pyinstaller. Python 3 is required however. If you do not have it, you can download it at https://www.python.org/downloads/.
 
 The server program binds to a port and listens for requests from a client. After a client connects to the server, the server waits for commands. When the client sends a terminate message (quit), the server terminates the connection and waits for the next connection.
 
-How to Run:
+##How to Run:
 
-This program requires that you first start the server ("ftp_server"), then start the client ("ftp_client.py"). Download all the files from this Github to ensure you have all of the necessary dependencies.
+This program requires that you first start the server ("ftp_server"), then start the client ("ftp_client"). Download all of the files from this Github to ensure you have all of the necessary dependencies.
 
-Server:
+###Server:
 
-To start, run the executable mt_ftp_server/dist/ftp_server by double clicking on the file. This will open a window in the terminal prompting to enter the ip/hostname of your computer in order to host the server. Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the directory is the User's home directory. 
+####Mac:
+
+To start the server, run the executable mt_ftp_server/dist/ftp_server by double clicking on the file. This will open a window in the terminal prompting to enter the ip/hostname of your computer in order to host the server. Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the directory is the User's home directory. 
+
+####Linux/Windows:
+
+If you would like to run the server on Linux or Windows, the module pyftpdlib must be installed. This can be installed easily via the command 'pip install pyftpdlib' (or pip3 if your system's default python version is Python 2). This guide can assist with installing pip if you do not already have it: https://www.makeuseof.com/tag/install-pip-for-python/. When pyftpdlib has been installed, you can run 'ftp_server.py' via the command 'python pathtofile/mtp_ftp_server/ftp_server.py', or python3 if your sytems default python version is below 3.  Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the directory is the User's home directory. 
   
-Client:
+###Client:
 
 To start, open another window in Terminal and run the command "python3 (or python if python 3 is natively installed) path/to/repository/mt_ftp_server/ftp_client.py". By default, the clients's directory is the directory in which the program was executed (in this case the downloaded repository). The usage for the client is as follows:
 
