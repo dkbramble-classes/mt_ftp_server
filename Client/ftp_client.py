@@ -65,7 +65,10 @@ def main(): #creates a command line interface to connect with a given server and
         if connect == False: #only allow the commands connect and quit when not connected to a server
             if function[0].upper() == "CONNECT":
                 if len(function) == 3: # if the right number of parameters
-                    response = os.system("ping -c 1 " + function[1]) #ping the server to see if it's on the network
+                    if os.name == 'nt':
+                        response = os.system("ping " + function[1]) #ping the server to see if it's on the network
+                    else:
+                    	response = os.system("ping -c 1 " + function[1]) #ping the server to see if it's on the network
                     if response == 0: #if ping successful
                         CONNECT(function[1], function[2])
                         connect = True
@@ -94,6 +97,8 @@ def main(): #creates a command line interface to connect with a given server and
             elif function[0].upper() == "QUIT":
                 ftp.close()
                 quit = True
+            elif function[0].upper() == "CONNECT":
+            	print("Already connected to a server!")
             else:
                 usage_error(function[0])
     print("Goodbye")
