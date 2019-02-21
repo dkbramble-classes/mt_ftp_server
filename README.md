@@ -12,15 +12,15 @@ This program requires that you first start the server ("ftp_server") before the 
 
 #### Mac:
 
-To start the server, run the executable mt_ftp_server/dist/ftp_server by double clicking on the file. This will open a window in the terminal prompting to enter the ip/hostname of your computer in order to host the server. Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the user's home directory. 
+To start the server, run the executable mt_ftp_server/Server/dist/ftp_server by double clicking on the file. This will open a window in the terminal prompting to enter the ip/hostname of your computer in order to host the server. Once the server has been started, it will wait and listen for any requests by clients. By default, the server's directory is the user's home directory. 
 
 #### Linux:
 
-If you would like to run the server on Linux or Windows, the module pyftpdlib must be installed. This can be installed easily via the Terminal/PowerShell command 'pip install pyftpdlib' (or pip3 if your system's default python version is Python 2). This guide can assist with installing pip if you do not already have it: https://www.makeuseof.com/tag/install-pip-for-python/. When pyftpdlib has been installed, you can run 'ftp_server.py' via the command 'python pathtofile/mtp_ftp_server/ftp_server.py'(or python3 if your system's default python version is Python 2).  Once the server has been started, it will wait and listen for any requests by clients. The server's directory is the directory where this file was executed. 
+If you would like to run the server on Linux or Windows, the module pyftpdlib must be installed. This can be installed easily via the Terminal/PowerShell command 'pip install pyftpdlib' (or pip3 if your system's default python version is Python 2). This guide can assist with installing pip if you do not already have it: https://www.makeuseof.com/tag/install-pip-for-python/. When pyftpdlib has been installed, you can run 'ftp_server.py' via the command 'python path/to/repository/mtp_ftp_server/Server/ftp_server.py'(or python3 if your system's default python version is Python 2).  Once the server has been started, it will wait and listen for any requests by clients. The server's directory is the directory where this file was executed (in this case the 'Server' folder). 
   
 ### Client:
 
-To start, open another window in Terminal/PowerShell and run the command "python3 (or python if python 3 is natively installed) path/to/repository/mt_ftp_server/ftp_client.py". By default, the clients's directory is the directory in which the program was executed (in this case the downloaded repository). The usage for the client is as follows:
+To start, open another window in Terminal/PowerShell and run the command "python3 (or python if python 3 is natively installed) path/to/repository/mt_ftp_server/Client/ftp_client.py". By default, the clients's directory is the directory in which the program was executed (in this case the 'Client' folder). The usage for the client is as follows:
 
 1.	CONNECT <server name/IP address> <server port>: This command allows a client to connect to a server. The arguments are the IP address of the server and the port number on which the server is listening for connections. For you, this will be the ip/hostname inputted on the server and the port number 1026, which is the port number set on the server. This command must be made before any other commands can be made.
 
